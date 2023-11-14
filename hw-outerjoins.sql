@@ -1,6 +1,6 @@
 USE EntertainmentAgencyExample;
 --HW: Outer Joins
---HELP: 4, 5, , 
+--HELP: 4, 5, 7, 8
 
 -- *******************************************************************************
 -- 1. List the stage names of all entertainers who have had at least one engagement.
@@ -33,8 +33,12 @@ USE EntertainmentAgencyExample;
 -- your totals make sense compared to the results from #2 and #3. (2 columns, 13 rows)
 -- *******************************************************************************
 
---SELECT EntStageName, COUNT(*) AS NumOfEngagements FROM Entertainers
---RIGHT JOIN Engagements ON Entertainers.EntertainerID = Engagements.EntertainerID
+--SELECT EntStageName, COUNT(EngagementNumber) AS NumOfEngagements FROM Entertainers
+--LEFT JOIN Engagements ON Entertainers.EntertainerID = Engagements.EntertainerID
+--GROUP BY EntStageName
+--ORDER BY NumOfEngagements
+
+
 --WHERE Engagements.EntertainerID IS NULL OR NOT NULL
 --GROUP BY EntStageName
 --SELECT * FROM Engagements
@@ -44,6 +48,11 @@ USE EntertainmentAgencyExample;
 -- 5. List the IDs of all musical styles and the IDs of customers who prefer those
 -- styles. Sort by style ID from lowest to highest. (2 columns, 41 rows)
 -- *******************************************************************************
+
+--SELECT Musical_Preferences.StyleID, CustomerID FROM Musical_Styles
+--LEFT JOIN Musical_Preferences on Musical_Styles.StyleID = Musical_Preferences.StyleID
+--ORDER BY Musical_Preferences.StyleID ASC
+
 
 --SELECT CustomerID, StyleID FROM Musical_Preferences
 --ORDER BY StyleID ASC
@@ -65,10 +74,14 @@ USE EntertainmentAgencyExample;
 -- entertainers who have never been booked. Sort alphabetically by customer last
 -- name, then first name, then entertainer stage name. (3 columns, 114 rows)
 -- *******************************************************************************
+--SELECT CustFirstName, CustLastName, EntStageName FROM Customers
+--LEFT JOIN Engagements ON Customers.CustomerID = Engagements.CustomerID
+--LEFT JOIN Entertainers ON Engagements.EntertainerID = Entertainers.EntertainerID
+--ORDER BY CustLastName, CustFirstName, EntStageName
+
+--SELECT * FROM Engagements
+
 --SELECT * FROM Entertainers
-
---SELECT * FROM 
-
 
 
 -- *******************************************************************************
@@ -76,4 +89,7 @@ USE EntertainmentAgencyExample;
 -- have booked. Sort by total booked entertainers from most to least. Hint: Make 
 -- sure your totals make sense compared to your answer from #7. (3 columns, 15 rows)
 -- *******************************************************************************
+--SELECT * FROM Customers
+
+--SELECT * FROM Entertainers
 
