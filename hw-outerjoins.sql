@@ -1,6 +1,6 @@
 USE EntertainmentAgencyExample;
 --HW: Outer Joins
---HELP: 4, 5, 7, 8
+--HELP: 4, 7, 8
 
 -- *******************************************************************************
 -- 1. List the stage names of all entertainers who have had at least one engagement.
@@ -31,6 +31,7 @@ USE EntertainmentAgencyExample;
 -- 4. List the stage names of all entertainers and the total number of engagements
 -- they have booked. Sort by total engagements from most to least. Hint: Make sure 
 -- your totals make sense compared to the results from #2 and #3. (2 columns, 13 rows)
+-- HELP
 -- *******************************************************************************
 
 --SELECT EntStageName, COUNT(EngagementNumber) AS NumOfEngagements FROM Entertainers
@@ -73,6 +74,7 @@ USE EntertainmentAgencyExample;
 -- have booked. Include customers who have never booked an entertainer and 
 -- entertainers who have never been booked. Sort alphabetically by customer last
 -- name, then first name, then entertainer stage name. (3 columns, 114 rows)
+-- HELP
 -- *******************************************************************************
 --SELECT CustFirstName, CustLastName, EntStageName FROM Customers
 --LEFT JOIN Engagements ON Customers.CustomerID = Engagements.CustomerID
@@ -88,8 +90,8 @@ USE EntertainmentAgencyExample;
 -- 8. List the names of all customers and the number of unique entertainers they
 -- have booked. Sort by total booked entertainers from most to least. Hint: Make 
 -- sure your totals make sense compared to your answer from #7. (3 columns, 15 rows)
+-- HELP
 -- *******************************************************************************
 --SELECT * FROM Customers
 
 --SELECT * FROM Entertainers
-
