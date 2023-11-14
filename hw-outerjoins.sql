@@ -37,7 +37,7 @@ USE EntertainmentAgencyExample;
 --SELECT EntStageName, COUNT(EngagementNumber) AS NumOfEngagements FROM Entertainers
 --LEFT JOIN Engagements ON Entertainers.EntertainerID = Engagements.EntertainerID
 --GROUP BY EntStageName
---ORDER BY NumOfEngagements
+--ORDER BY NumOfEngagements DESC
 
 
 --WHERE Engagements.EntertainerID IS NULL OR NOT NULL
